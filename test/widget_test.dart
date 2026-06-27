@@ -20,4 +20,26 @@ void main() {
     expect(find.text('Add exception to block'), findsOneWidget);
     expect(find.text('Unlock block'), findsOneWidget);
   });
+
+  testWidgets('Add exception button opens add exception page', (
+    WidgetTester tester,
+  ) async {
+    await tester.pumpWidget(const MyApp());
+
+    await tester.tap(find.text('Add exception to block'));
+    await tester.pumpAndSettle();
+
+    expect(find.byType(AddExceptionPage), findsOneWidget);
+  });
+
+  testWidgets('Unlock block button opens unlock page', (
+    WidgetTester tester,
+  ) async {
+    await tester.pumpWidget(const MyApp());
+
+    await tester.tap(find.text('Unlock block'));
+    await tester.pumpAndSettle();
+
+    expect(find.byType(UnlockPage), findsOneWidget);
+  });
 }

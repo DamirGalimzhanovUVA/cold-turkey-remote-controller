@@ -127,11 +127,24 @@ class _MyHomePageState extends State<MyHomePage> {
             FilledButton(onPressed: () {}, child: const Text('Submit')),
             const SizedBox(height: 12),
             FilledButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const AddExceptionPage(),
+                  ),
+                );
+              },
               child: const Text('Add exception to block'),
             ),
             const SizedBox(height: 12),
-            FilledButton(onPressed: () {}, child: const Text('Unlock block')),
+            FilledButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const UnlockPage()),
+                );
+              },
+              child: const Text('Unlock block'),
+            ),
           ],
         ),
       ),
@@ -140,6 +153,30 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),
+    );
+  }
+}
+
+class AddExceptionPage extends StatelessWidget {
+  const AddExceptionPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Add exception to block')),
+      body: const SizedBox.shrink(),
+    );
+  }
+}
+
+class UnlockPage extends StatelessWidget {
+  const UnlockPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Unlock block')),
+      body: const SizedBox.shrink(),
     );
   }
 }
