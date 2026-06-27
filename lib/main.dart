@@ -55,6 +55,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  final TextEditingController _inputController = TextEditingController();
 
   void _incrementCounter() {
     setState(() {
@@ -65,6 +66,12 @@ class _MyHomePageState extends State<MyHomePage> {
       // called again, and so nothing would appear to happen.
       _counter++;
     });
+  }
+
+  @override
+  void dispose() {
+    _inputController.dispose();
+    super.dispose();
   }
 
   @override
@@ -104,11 +111,27 @@ class _MyHomePageState extends State<MyHomePage> {
           // wireframe for each widget.
           mainAxisAlignment: .center,
           children: [
-            const Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+            const Text('Enter the block you want to change:'),
+            const SizedBox(height: 24),
+            SizedBox(
+              width: 320,
+              child: TextField(
+                controller: _inputController,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Enter text',
+                ),
+              ),
             ),
+            const SizedBox(height: 12),
+            FilledButton(onPressed: () {}, child: const Text('Submit')),
+            const SizedBox(height: 12),
+            FilledButton(
+              onPressed: () {},
+              child: const Text('Add exception to block'),
+            ),
+            const SizedBox(height: 12),
+            FilledButton(onPressed: () {}, child: const Text('Unlock block')),
           ],
         ),
       ),
