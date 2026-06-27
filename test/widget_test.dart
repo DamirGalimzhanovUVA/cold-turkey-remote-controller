@@ -6,6 +6,7 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:flutter/material.dart';
 
 import 'package:cold_turkey_remote_controller/main.dart';
 
@@ -30,6 +31,9 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.byType(AddExceptionPage), findsOneWidget);
+    expect(find.text('Block name'), findsOneWidget);
+    expect(find.text('exception URL'), findsOneWidget);
+    expect(find.text('add exception'), findsOneWidget);
   });
 
   testWidgets('Unlock block button opens unlock page', (
@@ -41,5 +45,8 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.byType(UnlockPage), findsOneWidget);
+    expect(find.text('Block name'), findsOneWidget);
+    expect(find.text('unlock duration'), findsOneWidget);
+    expect(find.widgetWithText(FilledButton, 'Unlock block'), findsOneWidget);
   });
 }

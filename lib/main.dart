@@ -164,7 +164,31 @@ class AddExceptionPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Add exception to block')),
-      body: const SizedBox.shrink(),
+      body: const Center(
+        child: SizedBox(
+          width: 320,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Block name',
+                ),
+              ),
+              SizedBox(height: 12),
+              TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'exception URL',
+                ),
+              ),
+              SizedBox(height: 12),
+              FilledButton(onPressed: null, child: Text('add exception')),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
@@ -176,7 +200,31 @@ class UnlockPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Unlock block')),
-      body: const SizedBox.shrink(),
+      body: Center(
+        child: SizedBox(
+          width: 320,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Block name',
+                ),
+              ),
+              const SizedBox(height: 12),
+              const TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'unlock duration',
+                ),
+              ),
+              const SizedBox(height: 12),
+              FilledButton(onPressed: () {}, child: const Text('Unlock block')),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
