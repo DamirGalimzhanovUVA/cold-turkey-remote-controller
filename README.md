@@ -1,69 +1,56 @@
-# Cold Turkey CLI Commands
+# Welcome to your Expo app 👋
 
--start "Block Name"
-Starts the specified block with no lock. Website & App blocks will be
-blocked at all times. Device blocks will be enabled if scheduled. To start a
-device block immediately, use the -lock parameter as well.
+This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
--start "Block Name" -as-is
-Starts the specified block with all previously configured settings, including
-block type and lock.
+## Get started
 
--start "Block Name" -lock X
-Starts and locks the specified block for X number of minutes
-(X must be >= minutes left). If the name of a device block is given, X is
-the duration of the block in minutes.
+1. Install dependencies
 
--start "Block Name" -password X
-Starts and locks the specified block with X as the password. Spaces and
-quotes can't be used when setting a password via the command line. Only
-scheduled device blocks can be locked using a password.
+   ```bash
+   npm install
+   ```
 
--start "Block Name" -random-text X
-Starts and locks the specified block with X number of random characters
-(words). Only scheduled device blocks can be locked using random text.
+2. Start the app
 
--stop "Block Name"
-Stops the specified block if unlocked. Device blocks will be disabled if
-scheduled.
+   ```bash
+   npx expo start
+   ```
 
--stop "Block Name" -password X
-Stops the specified block if locked with X as the block password.
+In the output, you'll find options to open the app in a
 
--toggle "Block Name"
-Starts or stops the specified block as if -start and -stop were used.
+- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
+- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
+- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
+- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
--status "Block Name"
-Displays if the specified block is enabled or disabled.
+You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
--list-blocks
-Displays a list of all blocks.
+## Get a fresh project
 
--add-block "Block Name"
-Creates a new website & app block with the specified name.
+When you're ready, run:
 
--add "Block Name" -web "URL"
-Adds a URL to the website tab of the specified (non-device) block. The block
-must already exist.
+```bash
+npm run reset-project
+```
 
--add "Block Name" -exception "URL"
-Adds a URL to the exception tab of the specified (non-device) block if
-unlocked. The block must already exist.
+This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
 
--add-device-block "Block Name"
-Creates a new device block (lock screen) with the specified name.
+### Other setup steps
 
--add-device-block "Block Name" -sign-out
-Creates a new device block (sign out) with the specified name.
+- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
+- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
+- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
 
--add-device-block "Block Name" -shut-down
-Creates a new device block (shut down) with the specified name.
+## Learn more
 
--start-delay-break "Block Name"
-Starts the countdown for delay break (if set) for the specified block.
+To learn more about developing your project with Expo, look at the following resources:
 
--stop-delay-break "Block Name"
-Stops a delay break (if started) for the specified block.
+- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
+- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
 
--stop-random-text-break "Block Name"
-Stops a random text break (if started) for the specified block.
+## Join the community
+
+Join our community of developers creating universal apps.
+
+- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
+- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
