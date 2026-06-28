@@ -164,27 +164,30 @@ class AddExceptionPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Add exception to block')),
-      body: const Center(
+      body: Center(
         child: SizedBox(
           width: 320,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              TextField(
+              const TextField(
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Block name',
                 ),
               ),
-              SizedBox(height: 12),
-              TextField(
+              const SizedBox(height: 12),
+              const TextField(
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'exception URL',
                 ),
               ),
-              SizedBox(height: 12),
-              FilledButton(onPressed: null, child: Text('add exception')),
+              const SizedBox(height: 12),
+              FilledButton(
+                onPressed: () {},
+                child: const Text('add exception'),
+              ),
             ],
           ),
         ),
