@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'add_exception_page.dart';
+import 'cold_turkey_view_model.dart';
 import 'unlock_page.dart';
 
 void main() {
@@ -57,23 +58,13 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  final ColdTurkeyViewModel _viewModel = ColdTurkeyViewModel();
   final TextEditingController _inputController = TextEditingController();
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
 
   @override
   void dispose() {
     _inputController.dispose();
+    _viewModel.dispose();
     super.dispose();
   }
 
@@ -133,7 +124,10 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => const AddExceptionPage(),
+                    builder: (context) => AddExceptionPage(
+                      viewModel: _viewModel,
+                      blockName: _inputController.text,
+                    ),
                   ),
                 );
               },
@@ -143,7 +137,12 @@ class _MyHomePageState extends State<MyHomePage> {
             FilledButton(
               onPressed: () {
                 Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => const UnlockPage()),
+                  MaterialPageRoute(
+                    builder: (context) => UnlockPage(
+                      viewModel: _viewModel,
+                      blockName: _inputController.text,
+                    ),
+                  ),
                 );
               },
               child: const Text('Unlock block'),

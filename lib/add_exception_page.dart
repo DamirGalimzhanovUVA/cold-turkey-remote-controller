@@ -1,7 +1,29 @@
 import 'package:flutter/material.dart';
 
-class AddExceptionPage extends StatelessWidget {
-  const AddExceptionPage({super.key});
+import 'cold_turkey_view_model.dart';
+
+class AddExceptionPage extends StatefulWidget {
+  const AddExceptionPage({
+    super.key,
+    required this.viewModel,
+    required this.blockName,
+  });
+
+  final ColdTurkeyViewModel viewModel;
+  final String blockName;
+
+  @override
+  State<AddExceptionPage> createState() => _AddExceptionPageState();
+}
+
+class _AddExceptionPageState extends State<AddExceptionPage> {
+  final TextEditingController _exceptionController = TextEditingController();
+
+  @override
+  void dispose() {
+    _exceptionController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,15 +42,21 @@ class AddExceptionPage extends StatelessWidget {
               //   ),
               // ),
               // const SizedBox(height: 12),
-              const TextField(
-                decoration: InputDecoration(
+              TextField(
+                controller: _exceptionController,
+                decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Exception URL',
                 ),
               ),
               const SizedBox(height: 12),
               FilledButton(
-                onPressed: () {},
+                onPressed: () {
+                  widget.viewModel.addException(
+                    blockName: widget.blockName,
+                    exceptionUrl: _exceptionController.text,
+                  );
+                },
                 child: const Text('Add exception'),
               ),
             ],

@@ -1,7 +1,30 @@
 import 'package:flutter/material.dart';
 
-class UnlockPage extends StatelessWidget {
-  const UnlockPage({super.key});
+import 'cold_turkey_view_model.dart';
+
+class UnlockPage extends StatefulWidget {
+  const UnlockPage({
+    super.key,
+    required this.viewModel,
+    required this.blockName,
+  });
+
+  final ColdTurkeyViewModel viewModel;
+  final String blockName;
+
+  @override
+  State<UnlockPage> createState() => _UnlockPageState();
+}
+
+class _UnlockPageState extends State<UnlockPage> {
+  final TextEditingController _unlockDurationController =
+      TextEditingController();
+
+  @override
+  void dispose() {
+    _unlockDurationController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,14 +43,23 @@ class UnlockPage extends StatelessWidget {
               //   ),
               // ),
               // const SizedBox(height: 12),
-              const TextField(
-                decoration: InputDecoration(
+              TextField(
+                controller: _unlockDurationController,
+                decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Unlock duration',
                 ),
               ),
               const SizedBox(height: 12),
-              FilledButton(onPressed: () {}, child: const Text('Unlock block')),
+              FilledButton(
+                onPressed: () {
+                  widget.viewModel.unlockBlock(
+                    blockName: widget.blockName,
+                    unlockDuration: _unlockDurationController.text,
+                  );
+                },
+                child: const Text('Unlock block'),
+              ),
             ],
           ),
         ),
