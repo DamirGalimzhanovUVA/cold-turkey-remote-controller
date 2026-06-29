@@ -170,23 +170,23 @@ class AddExceptionPage extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
+              // const TextField(
+              //   decoration: InputDecoration(
+              //     border: OutlineInputBorder(),
+              //     labelText: 'Block name',
+              //   ),
+              // ),
+              // const SizedBox(height: 12),
               const TextField(
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'Block name',
-                ),
-              ),
-              const SizedBox(height: 12),
-              const TextField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'exception URL',
+                  labelText: 'Exception URL',
                 ),
               ),
               const SizedBox(height: 12),
               FilledButton(
                 onPressed: () {},
-                child: const Text('add exception'),
+                child: const Text('Add exception'),
               ),
             ],
           ),
@@ -209,17 +209,17 @@ class UnlockPage extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
+              // const TextField(
+              //   decoration: InputDecoration(
+              //     border: OutlineInputBorder(),
+              //     labelText: 'Block name',
+              //   ),
+              // ),
+              // const SizedBox(height: 12),
               const TextField(
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'Block name',
-                ),
-              ),
-              const SizedBox(height: 12),
-              const TextField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'unlock duration',
+                  labelText: 'Unlock duration',
                 ),
               ),
               const SizedBox(height: 12),
