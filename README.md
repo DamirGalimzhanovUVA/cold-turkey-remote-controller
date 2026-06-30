@@ -1,17 +1,9 @@
 # cold_turkey_remote_controller
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+(Frozen)
+The original idea for the project was to use the Cold Turkey CLI,
+a basic interface for the desktop client for the person whose profile is managed,
+a desktop/mobile client for approver, using multiplatform, and a server
+that would connect them together, which the user would have a choice over the deployment of themselves,
+but then it turned out that it could not be made, because the password is required for block approvals,
+and would need to be manually sent every time an approval is given
